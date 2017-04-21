@@ -45,6 +45,7 @@
         MBXExampleSimpleMapView,
         MBXExampleSourceCustomRaster,
         MBXExampleSourceCustomVector,
+        MBXExampleUserLocationAnnotation,
         MBXExampleUserTrackingModes,
     ]];
 
