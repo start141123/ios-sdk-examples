@@ -6,8 +6,7 @@
 
 NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExample";
 
-// MGLUserLocationAnnotationView subclass
-
+// Create subclass of MGLUserLocationAnnotationView. This is used to create a custom user location annotation.
 @interface CustomUserLocationAnnotationView : MGLUserLocationAnnotationView
 
 @property (nonatomic) CGFloat size;
@@ -36,7 +35,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 }
 
 - (void)updateHeading {
-    // Show the heading arrow, if we’re able to.
+    // Show the heading arrow, if the heading of the user is being tracked.
     if (self.userLocation.heading && self.mapView.userTrackingMode == MGLUserTrackingModeFollowWithHeading) {
         _arrow.hidden = NO;
         
@@ -88,6 +87,8 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 }
 
 - (CGPathRef)arrowPath {
+
+    // Draw an arrow.
     CGFloat max = _arrowSize;
     
     CGPoint top = CGPointMake(max * 0.5, max * 0.4);
@@ -107,7 +108,6 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 
 @end
 
-// Example view controller
 @interface UserLocationAnnotationExample () <MGLMapViewDelegate>
 @end
 
@@ -129,6 +129,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 // MARK: - MGLMapViewDelegate methods
 
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation {
+    
     // This is how we substitute a custom view for the user location annotation.
     if ([annotation isKindOfClass:[MGLUserLocation class]]) {
         return [[CustomUserLocationAnnotationView alloc] init];

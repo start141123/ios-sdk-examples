@@ -14,9 +14,9 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
         mapView.userTrackingMode = .followWithHeading
         view.addSubview(mapView)
     }
-    // MARK: - MGLMapViewDelegate methods
+    
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        // This is how we substitute a custom view for the user location annotation.
+        // This is how we substitute a custom view for the user location annotation. This custom view is created below.
         if annotation is MGLUserLocation && mapView.userLocation != nil {
             return CustomUserLocationAnnotationView()
         }
@@ -24,7 +24,7 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
     }
 }
 
-// MGLUserLocationAnnotationView subclass
+// Create subclass of MGLUserLocationAnnotationView.
 class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     let size: CGFloat = 23
     var arrowSize: CGFloat!
@@ -44,7 +44,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     }
     
     private func updateHeading() {
-        // Show the heading arrow, if we’re able to.
+        // Show the heading arrow, if the heading of the user is being tracked.
         if let heading = userLocation!.heading, mapView?.userTrackingMode == .followWithHeading {
             arrow.isHidden = false
             
@@ -66,6 +66,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
         if dot == nil {
             dot = CALayer()
             dot.bounds = CGRect(x: 0, y: 0, width: size, height: size)
+            
             // Use CALayer’s corner radius to turn this layer into a circle.
             dot.cornerRadius = size / 2
             dot.backgroundColor = super.tintColor.cgColor
@@ -85,8 +86,10 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             layer.addSublayer(arrow)
         }
     }
-    
+
     private func arrowPath() -> CGPath {
+
+        // Draw an arrow.
         let max: CGFloat = arrowSize
         let top = CGPoint(x: max * 0.5, y: max * 0.4)
         let left = CGPoint(x: 0, y: max)
