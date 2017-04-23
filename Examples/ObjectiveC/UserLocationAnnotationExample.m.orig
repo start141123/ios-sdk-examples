@@ -6,12 +6,7 @@
 
 NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExample";
 
-<<<<<<< HEAD
 // Create subclass of MGLUserLocationAnnotationView. This is used to create a custom user location annotation.
-=======
-// MGLUserLocationAnnotationView subclass
-
->>>>>>> rebased
 @interface CustomUserLocationAnnotationView : MGLUserLocationAnnotationView
 
 @property (nonatomic) CGFloat size;
@@ -31,10 +26,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
     return self;
 }
 
-<<<<<<< HEAD
 // -update is a method inherited from MGLUserLocationAnnotationView. It updates the appearance of the user location annotation when needed.
-=======
->>>>>>> rebased
 - (void)update {
     // This method can be called many times a second, so be careful to keep it lightweight.
     if (CLLocationCoordinate2DIsValid(self.userLocation.coordinate)) {
@@ -44,23 +36,14 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 }
 
 - (void)updateHeading {
-<<<<<<< HEAD
     // Show the heading arrow, if the heading of the user is being tracked.
-=======
-    // Show the heading arrow, if we’re able to.
->>>>>>> rebased
     if (self.userLocation.heading && self.mapView.userTrackingMode == MGLUserTrackingModeFollowWithHeading) {
         _arrow.hidden = NO;
         
         // Rotate the arrow according to the user’s heading.
         CGAffineTransform rotation = CGAffineTransformRotate(
-<<<<<<< HEAD
                                         CGAffineTransformIdentity,
                                         -MGLRadiansFromDegrees(self.mapView.direction - self.userLocation.heading.trueHeading));
-=======
-                                                             CGAffineTransformIdentity,
-                                                             -MGLRadiansFromDegrees(self.mapView.direction - self.userLocation.heading.trueHeading));
->>>>>>> rebased
         [self.layer setAffineTransform:rotation];
     } else {
         _arrow.hidden = YES;
@@ -96,11 +79,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
         
         _arrow = [CAShapeLayer layer];
         _arrow.path = [self arrowPath];
-<<<<<<< HEAD
         _arrow.frame = CGRectMake(0, 0, _arrowSize, _arrowSize);
-=======
-        _arrow.bounds = CGRectMake(0, 0, _arrowSize, _arrowSize);
->>>>>>> rebased
         _arrow.position = CGPointMake(_size / 2, -5);
         _arrow.fillColor = super.tintColor.CGColor;
         
@@ -109,11 +88,8 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 }
 
 - (CGPathRef)arrowPath {
-<<<<<<< HEAD
 
     // Draw an arrow.
-=======
->>>>>>> rebased
     CGFloat max = _arrowSize;
     
     CGPoint top = CGPointMake(max * 0.5, max * 0.4);
@@ -133,10 +109,6 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 
 @end
 
-<<<<<<< HEAD
-=======
-// Example view controller
->>>>>>> rebased
 @interface UserLocationAnnotationExample () <MGLMapViewDelegate>
 @end
 
@@ -158,12 +130,12 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 // MARK: - MGLMapViewDelegate methods
 
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation {
-<<<<<<< HEAD
     
+<<<<<<< HEAD
     // Substitute a custom view for the user location annotation.
 =======
     // This is how we substitute a custom view for the user location annotation.
->>>>>>> rebased
+>>>>>>> added comments
     if ([annotation isKindOfClass:[MGLUserLocation class]]) {
         return [[CustomUserLocationAnnotationView alloc] init];
     }

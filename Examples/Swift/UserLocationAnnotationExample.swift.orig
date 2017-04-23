@@ -14,15 +14,13 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
         mapView.userTrackingMode = .followWithHeading
         view.addSubview(mapView)
     }
-<<<<<<< HEAD
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+<<<<<<< HEAD
         // Substitute a custom view for the user location annotation. This custom view is created below.
 =======
-    // MARK: - MGLMapViewDelegate methods
-    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-        // This is how we substitute a custom view for the user location annotation.
->>>>>>> rebased
+        // This is how we substitute a custom view for the user location annotation. This custom view is created below.
+>>>>>>> added comments
         if annotation is MGLUserLocation && mapView.userLocation != nil {
             return CustomUserLocationAnnotationView()
         }
@@ -30,23 +28,14 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
     }
 }
 
-<<<<<<< HEAD
 // Create subclass of MGLUserLocationAnnotationView.
 class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     let size: CGFloat = 25
-=======
-// MGLUserLocationAnnotationView subclass
-class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
-    let size: CGFloat = 23
->>>>>>> rebased
     var arrowSize: CGFloat!
     var dot: CALayer!
     var arrow: CAShapeLayer!
     
-<<<<<<< HEAD
     // -update is a method inherited from MGLUserLocationAnnotationView. It updates the appearance of the user location annotation when needed.
-=======
->>>>>>> rebased
     override func update() {
         if frame.isNull {
             frame = CGRect(x: 0, y: 0, width: size, height: size)
@@ -60,11 +49,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
     }
     
     private func updateHeading() {
-<<<<<<< HEAD
         // Show the heading arrow, if the heading of the user is being tracked.
-=======
-        // Show the heading arrow, if we’re able to.
->>>>>>> rebased
         if let heading = userLocation!.heading, mapView?.userTrackingMode == .followWithHeading {
             arrow.isHidden = false
             
@@ -86,10 +71,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
         if dot == nil {
             dot = CALayer()
             dot.bounds = CGRect(x: 0, y: 0, width: size, height: size)
-<<<<<<< HEAD
             
-=======
->>>>>>> rebased
             // Use CALayer’s corner radius to turn this layer into a circle.
             dot.cornerRadius = size / 2
             dot.backgroundColor = super.tintColor.cgColor
@@ -104,23 +86,18 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             arrowSize = size / 2.5
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
-<<<<<<< HEAD
             arrow.frame = CGRect(x: 0, y: 0, width: arrowSize, height: arrowSize)
-=======
-            arrow.bounds = CGRect(x: 0, y: (size/2 + 2), width: arrowSize, height: arrowSize)
->>>>>>> rebased
             arrow.fillColor = super.tintColor.cgColor
             layer.addSublayer(arrow)
         }
     }
-<<<<<<< HEAD
 
     private func arrowPath() -> CGPath {
-        // Draw an arrow.
+<<<<<<< HEAD
 =======
-    
-    private func arrowPath() -> CGPath {
->>>>>>> rebased
+
+>>>>>>> added comments
+        // Draw an arrow.
         let max: CGFloat = arrowSize
         let top = CGPoint(x: max * 0.5, y: max * 0.4)
         let left = CGPoint(x: 0, y: max)
