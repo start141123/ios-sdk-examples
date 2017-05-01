@@ -26,6 +26,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
     return self;
 }
 
+// -update is a method inherited from MGLUserLocationAnnotationView. It updates the appearance of the user location annotation when needed.
 - (void)update {
     // This method can be called many times a second, so be careful to keep it lightweight.
     if (CLLocationCoordinate2DIsValid(self.userLocation.coordinate)) {
@@ -41,8 +42,8 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
         
         // Rotate the arrow according to the user’s heading.
         CGAffineTransform rotation = CGAffineTransformRotate(
-                                                             CGAffineTransformIdentity,
-                                                             -MGLRadiansFromDegrees(self.mapView.direction - self.userLocation.heading.trueHeading));
+                                        CGAffineTransformIdentity,
+                                        -MGLRadiansFromDegrees(self.mapView.direction - self.userLocation.heading.trueHeading));
         [self.layer setAffineTransform:rotation];
     } else {
         _arrow.hidden = YES;
@@ -130,7 +131,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 
 - (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation {
     
-    // This is how we substitute a custom view for the user location annotation.
+    // Substitute a custom view for the user location annotation.
     if ([annotation isKindOfClass:[MGLUserLocation class]]) {
         return [[CustomUserLocationAnnotationView alloc] init];
     }
