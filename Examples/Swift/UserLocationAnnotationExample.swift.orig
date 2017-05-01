@@ -16,11 +16,7 @@ class UserLocationAnnotationExample_Swift: UIViewController, MGLMapViewDelegate 
     }
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
-<<<<<<< HEAD
         // Substitute a custom view for the user location annotation. This custom view is created below.
-=======
-        // This is how we substitute a custom view for the user location annotation. This custom view is created below.
->>>>>>> added comments
         if annotation is MGLUserLocation && mapView.userLocation != nil {
             return CustomUserLocationAnnotationView()
         }
@@ -86,17 +82,17 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             arrowSize = size / 2.5
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
+<<<<<<< HEAD
             arrow.frame = CGRect(x: 0, y: 0, width: arrowSize, height: arrowSize)
+=======
+            arrow.bounds = CGRect(x: 0, y: 0, width: arrowSize, height: arrowSize)
+>>>>>>> changes from friedbunny
             arrow.fillColor = super.tintColor.cgColor
             layer.addSublayer(arrow)
         }
     }
 
     private func arrowPath() -> CGPath {
-<<<<<<< HEAD
-=======
-
->>>>>>> added comments
         // Draw an arrow.
         let max: CGFloat = arrowSize
         let top = CGPoint(x: max * 0.5, y: max * 0.4)
