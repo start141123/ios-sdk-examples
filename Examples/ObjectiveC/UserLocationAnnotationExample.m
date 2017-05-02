@@ -79,7 +79,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
         
         _arrow = [CAShapeLayer layer];
         _arrow.path = [self arrowPath];
-        _arrow.bounds = CGRectMake(0, 0, _arrowSize, _arrowSize);
+        _arrow.frame = CGRectMake(0, 0, _arrowSize, _arrowSize);
         _arrow.position = CGPointMake(_size / 2, -5);
         _arrow.fillColor = super.tintColor.CGColor;
         

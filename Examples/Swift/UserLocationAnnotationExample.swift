@@ -82,7 +82,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             arrowSize = size / 2.5
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
-            arrow.bounds = CGRect(x: 0, y: 0, width: arrowSize, height: arrowSize)
+            arrow.frame = CGRect(x: 0, y: 0, width: arrowSize, height: arrowSize)
             arrow.fillColor = super.tintColor.cgColor
             layer.addSublayer(arrow)
         }
