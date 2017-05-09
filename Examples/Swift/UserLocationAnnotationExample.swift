@@ -67,7 +67,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
         if dot == nil {
             dot = CALayer()
             dot.bounds = CGRect(x: 0, y: 0, width: size, height: size)
-            
+
             // Use CALayer’s corner radius to turn this layer into a circle.
             dot.cornerRadius = size / 2
             dot.backgroundColor = super.tintColor.cgColor
@@ -90,6 +90,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
 
     private func arrowPath() -> CGPath {
         // Draw an arrow.
+        
         let max: CGFloat = arrowSize
         let top = CGPoint(x: max * 0.5, y: max * 0.4)
         let left = CGPoint(x: 0, y: max)

@@ -6,7 +6,12 @@
 
 NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExample";
 
+<<<<<<< HEAD
 // Create subclass of MGLUserLocationAnnotationView. This is used to create a custom user location annotation.
+=======
+// MGLUserLocationAnnotationView subclass
+
+>>>>>>> rebased
 @interface CustomUserLocationAnnotationView : MGLUserLocationAnnotationView
 
 @property (nonatomic) CGFloat size;
@@ -36,6 +41,7 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 }
 
 - (void)updateHeading {
+
     // Show the heading arrow, if the heading of the user is being tracked.
     if (self.userLocation.heading && self.mapView.userTrackingMode == MGLUserTrackingModeFollowWithHeading) {
         _arrow.hidden = NO;
@@ -88,8 +94,8 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
 }
 
 - (CGPathRef)arrowPath {
-
     // Draw an arrow.
+
     CGFloat max = _arrowSize;
     
     CGPoint top = CGPointMake(max * 0.5, max * 0.4);
