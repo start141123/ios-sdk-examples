@@ -86,10 +86,10 @@ NSString *const MBXExampleUserLocationAnnotation = @"UserLocationAnnotationExamp
         _arrow = [CAShapeLayer layer];
         _arrow.path = [self arrowPath];
         _arrow.frame = CGRectMake(0, 0, _arrowSize, _arrowSize);
-        _arrow.position = CGPointMake(_size / 2, -(_size / 3.5));
+        _arrow.position = CGPointMake(_size / 2, _size / -4.5);
         _arrow.fillColor = super.tintColor.CGColor;
-        _arrow.shouldRasterize = YES;
-        _arrow.drawsAsynchronously = YES;
+//        _arrow.shouldRasterize = YES;
+//        _arrow.drawsAsynchronously = YES;
         [self.layer addSublayer:_arrow];
     }
 }

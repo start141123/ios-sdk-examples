@@ -83,7 +83,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
             arrow = CAShapeLayer()
             arrow.path = arrowPath()
             arrow.frame = CGRect(x: 0, y: 0, width: arrowSize, height: arrowSize)
-            arrow.position = CGPoint(x: size / 2, y:  -(size / 3.5))
+            arrow.position = CGPoint(x: size / 2, y: size / -4.5)
             arrow.fillColor = super.tintColor.cgColor
             layer.addSublayer(arrow)
         }
@@ -93,6 +93,7 @@ class CustomUserLocationAnnotationView: MGLUserLocationAnnotationView {
         // Draw an arrow.
         
         let max: CGFloat = arrowSize
+        
         let top = CGPoint(x: max * 0.5, y: max * 0.4)
         let left = CGPoint(x: 0, y: max)
         let right = CGPoint(x: max, y: max)
