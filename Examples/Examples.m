@@ -33,6 +33,7 @@
         MBXExampleDrawingAMarker,
         MBXExampleDrawingAPolygon,
         MBXExampleOfflinePack,
+        MBXExampleLiveData,
         MBXExamplePointConversion,
         MBXExampleRuntimeAddLine,
         MBXExampleRuntimeAnimateLine,
