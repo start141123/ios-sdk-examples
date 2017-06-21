@@ -32,6 +32,7 @@
         MBXExampleDrawingACustomMarker,
         MBXExampleDrawingAMarker,
         MBXExampleDrawingAPolygon,
+        MBXExampleFillPattern,
         MBXExampleOfflinePack,
         MBXExamplePointConversion,
         MBXExamplePointHeatmap,
